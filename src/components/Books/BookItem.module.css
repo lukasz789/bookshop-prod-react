@@ -1,0 +1,24 @@
+.book {
+  border-bottom: 1px solid #ccc;
+  overflow: auto;
+}
+
+.price {
+  font-weight: bold;
+  color: teal;
+  margin-bottom: 0.5rem;
+  font-size: 120%;
+}
+
+.moreinfo {
+  margin-bottom: 0.5rem;
+  text-decoration: underline;
+  color: gold;
+  cursor: pointer;
+  height: fit-content;
+  width: fit-content;
+}
+
+.moreinfo:hover {
+  font-weight: bold;
+}

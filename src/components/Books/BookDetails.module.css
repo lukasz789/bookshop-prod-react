@@ -1,0 +1,44 @@
+.detailsmodal {
+  position: absolute;
+  width: 80%;
+  left: 8%;
+  top: -25%;
+  background-color: white;
+  border-radius: 25px;
+  border-style: ridge;
+  border-color: gold;
+  background-color: whitesmoke;
+  z-index: 150;
+  animation: details-appear 0.4s ease-out forwards;
+  padding: 2%;
+  background-color: rgb(238, 232, 194);
+}
+
+.details {
+  font-size: 80%;
+  padding: 0 5% 5% 5%;
+}
+
+.bookdetails {
+  display: flex;
+  flex-direction: column;
+}
+
+.bookdetails h2 {
+  margin-bottom: 1rem;
+  font-size: 200%;
+}
+
+.btn {
+  width: 100%;
+}
+
+@keyframes details-appear {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}

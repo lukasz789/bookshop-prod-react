@@ -1,0 +1,33 @@
+.books {
+  position: absolute;
+  top: 20%;
+  height: 70%;
+  background-color: white;
+  padding: 1%;
+  border-radius: 25px;
+  margin: auto;
+  width: 60%;
+  left: 19%;
+  box-shadow: 0 1px 18px 10px rgba(0, 0, 0, 1);
+  background-color: whitesmoke;
+}
+
+.scroll {
+  height: 100%;
+  overflow: auto;
+}
+
+.scroll ul {
+  list-style: none;
+}
+
+@media (max-width: 768px) {
+  .scroll {
+    overflow-x: hidden;
+  }
+
+  .books {
+    width: 85%;
+    left: 6.5%;
+  }
+}

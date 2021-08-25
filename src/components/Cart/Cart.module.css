@@ -1,0 +1,128 @@
+@import url("https://fonts.googleapis.com/css2?family=Caveat&display=swap%27");
+
+.cartreset {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.cartresetcaption {
+  font-family: "Caveat", cursive;
+  font-size: 160%;
+  font-size: 170%;
+  color: rgb(170, 170, 170);
+  margin-left: 1%;
+}
+
+.arrow {
+  font-size: 160%;
+  margin-left: 1%;
+  color: rgb(170, 170, 170);
+}
+
+.cartdetails {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  padding: 5%;
+}
+
+.booklist {
+  list-style: none;
+  margin: 0;
+  padding-bottom: 1rem;
+  padding-left: 0;
+  overflow: auto;
+  height: 55%;
+  position: absolute;
+  width: 95%;
+}
+
+.total {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.price {
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-left: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.buttons {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.close {
+  background-color: crimson;
+}
+
+.orderBtn {
+  margin-left: 0.5rem;
+}
+
+.close:active,
+.close:hover {
+  background-color: rgb(255, 26, 72);
+}
+
+.cartRemove {
+  cursor: pointer;
+}
+
+.cartRemove:hover {
+  color: rgb(255, 26, 72);
+}
+
+@media (max-width: 768px) {
+  .buttons {
+    display: flex;
+    flex-direction: column-reverse;
+    transform: scale(0.8, 0.8);
+  }
+
+  .close {
+    margin: 0.2rem 0 0 0;
+  }
+
+  .orderBtn {
+    margin: 0;
+  }
+
+  .price {
+    margin-bottom: 0.5rem;
+    transform: scale(0.8, 0.8);
+  }
+}
+
+@media (max-width: 325px) {
+  .booklist {
+    height: 45%;
+  }
+}
+
+@media (max-width: 830px) and (orientation: landscape) {
+  .booklist {
+    height: 45%;
+  }
+}
+@media (max-width: 670px) and (orientation: landscape) {
+  .booklist {
+    height: 40%;
+  }
+}
+
+@media (max-height: 330px) and (orientation: landscape) {
+  .booklist {
+    height: 23%;
+  }
+}
+
+@media (min-height: 1300px) and (min-width: 1000px) {
+  .booklist {
+    height: 70%;
+  }
+}
