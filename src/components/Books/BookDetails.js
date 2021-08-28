@@ -8,7 +8,7 @@ const BookDetails = (props) => {
     <React.Fragment>
       <div className={classes.detailsmodal}>
         <div className={classes.details}>
-          <h2>{props.name}</h2>
+          <h1>{props.name}</h1>
           {props.details}
         </div>
         <Button className={classes.btn} onClick={props.onClose}>

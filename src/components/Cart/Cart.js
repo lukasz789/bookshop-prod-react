@@ -13,16 +13,20 @@ const Cart = (props) => {
 
   const totalAmount = `$${cartCtx.totalAmount.toFixed(2)}`;
 
-  const cartRemoveItemHandler = (id) => {
-    cartCtx.removeItem(id);
+  const cartRemoveWholeItemHandler = (id) => {
+    cartCtx.removeWholeItem(id);
   };
 
   const cartClearHandler = () => {
     cartCtx.clearCart();
   };
 
-  const changeTypeItemHandler = (id, type) => {
-    cartCtx.changeItemType(id, type);
+  const cartRemoveOneHandler = (id) => {
+    cartCtx.removeOneItem(id);
+  };
+
+  const cartAddItemHandler = (item) => {
+    cartCtx.addItem(item);
   };
 
   const cartItems = (
@@ -33,8 +37,10 @@ const Cart = (props) => {
           name={item.name}
           type={item.type}
           price={item.price}
-          onRemove={cartRemoveItemHandler.bind(null, item.id)}
-          onChangeType={changeTypeItemHandler.bind(null, item.id)}
+          amount={item.amount}
+          onRemoveOne={cartRemoveOneHandler.bind(null, item.id)}
+          onRemove={cartRemoveWholeItemHandler.bind(null, item.id)}
+          onAdd={cartAddItemHandler.bind(null, item)}
         />
       ))}
     </ul>

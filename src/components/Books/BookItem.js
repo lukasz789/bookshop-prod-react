@@ -10,12 +10,13 @@ const BookItem = (props) => {
   const [formStatus, setFormStatus] = useState(false);
   const [detailsStatus, setDetailsStatus] = useState(false);
 
-  const addItemHandler = (type) => {
+  const addItemHandler = (type, amount) => {
     cartCtx.addItem({
-      id: props.id,
+      id: `${props.id}_${type}`,
       name: props.name,
       price: props.price,
       type: type,
+      amount: amount,
     });
   };
 
@@ -31,30 +32,28 @@ const BookItem = (props) => {
     if (cartCtx.items.length === 0) {
       setFormStatus(false);
     } else {
-      if (cartCtx.items.findIndex((item) => props.id === item.id) >= 0) {
+      if (cartCtx.items.findIndex((item) => props.name === item.name) >= 0) {
         setFormStatus(true);
       } else {
         setFormStatus(false);
       }
     }
-  }, [cartCtx.items, props.id]);
+  }, [cartCtx.items, props.name]);
 
   return (
     <li className={classes.book}>
-      <div className={classes.bookdetails}>
-        <h2>{props.name}</h2>
-        <div className={classes.price}>${props.price.toFixed(2)}</div>
-        <div className={classes.moreinfo} onClick={clickMoreinfoHandler}>
-          more info
-        </div>
-        {detailsStatus && (
-          <BookDetails
-            name={props.name}
-            details={props.details}
-            onClose={closeMoreinfoHandler}
-          />
-        )}
+      <h1>{props.name}</h1>
+      <div className={classes.price}>${props.price.toFixed(2)}</div>
+      <div className={classes.moreinfo} onClick={clickMoreinfoHandler}>
+        more info
       </div>
+      {detailsStatus && (
+        <BookDetails
+          name={props.name}
+          details={props.details}
+          onClose={closeMoreinfoHandler}
+        />
+      )}
       <div>
         <BookItemForm
           id={props.id}

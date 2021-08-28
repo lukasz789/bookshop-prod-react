@@ -9,7 +9,9 @@ const HeaderBtn = (props) => {
   const cartCtx = useContext(CartContext);
   const [btnEffectStatus, setBtnEffectStatus] = useState(false);
 
-  const numberOfItemsInCart = cartCtx.items.length;
+  const numberOfItemsInCart = cartCtx.items.reduce((curNr, item) => {
+    return curNr + item.amount;
+  }, 0);
 
   const iconCartStyle = `${classes.icon} ${
     btnEffectStatus ? classes.bump : ""

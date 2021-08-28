@@ -5,10 +5,16 @@ import { useState } from "react";
 
 const BookItemForm = (props) => {
   const [typeSelected, setTypeSelected] = useState("paper");
+  let paperCounter = 0;
+  let ebookCounter = 0;
 
   const submitHandler = (event) => {
     event.preventDefault();
-    props.onAdd(typeSelected);
+    if (typeSelected === "paper") {
+      props.onAdd(typeSelected, ++paperCounter);
+    } else {
+      props.onAdd(typeSelected, ++ebookCounter);
+    }
   };
 
   const optionChangeHandler = (event) => {
