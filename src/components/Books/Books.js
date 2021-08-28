@@ -24,6 +24,7 @@ const Books = (props) => {
       } else if (item.name.toLowerCase().includes(searchTitle.toLowerCase())) {
         return item;
       }
+      return false;
     })
     .map((book) => (
       <BookItem
