@@ -22,3 +22,41 @@
 .moreinfo:hover {
   font-weight: bold;
 }
+
+.name {
+  margin-top: 1%;
+}
+
+.shake {
+  animation: shake 300ms ease-out;
+}
+
+@keyframes shake {
+  20%,
+  50%,
+  80% {
+    transform: translateY(0);
+  }
+
+  40% {
+    transform: translateY(-10px);
+  }
+
+  70% {
+    transform: translateY(-7px);
+  }
+
+  90% {
+    transform: translateY(-4px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .name {
+    margin-top: 0.67em;
+  }
+}

@@ -13,6 +13,10 @@
   background-color: rgb(211, 238, 211);
 }
 
+.order h2 {
+  margin-top: 0;
+}
+
 .confirmBtn {
   background: rgb(1, 94, 1);
   border-color: rgb(1, 94, 1);

@@ -21,10 +21,6 @@ const BookItemForm = (props) => {
     setTypeSelected(event.target.value);
   };
 
-  const highlight = `${props.formStatus ? classes.highlight : ``}`;
-
-  const allClasses = [classes.item + ` ` + highlight];
-
   return (
     <form className={classes.form} onSubmit={submitHandler}>
       <select
@@ -36,7 +32,7 @@ const BookItemForm = (props) => {
         <option value="ebook">E-book</option>
         <option value="paper">Paper</option>
       </select>
-      <Button type="submit" className={allClasses}>
+      <Button type="submit" className={classes.item}>
         + Add
       </Button>
     </form>

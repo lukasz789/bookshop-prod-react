@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Rampart+One&display=swap%27");
+@import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap%27");
 
 .button {
   background-color: crimson;
@@ -20,10 +20,10 @@
 
 .type {
   padding: 0.5rem;
-  font-family: "Rampart One", cursive;
-  font-size: 120%;
-  text-shadow: 0;
-  color: gold;
+  font-family: "Lobster", cursive;
+  font-size: 130%;
+  letter-spacing: 0.15rem;
+  color: #612424f6;
 }
 
 .itemheader {

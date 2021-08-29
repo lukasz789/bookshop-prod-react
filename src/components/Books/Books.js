@@ -38,6 +38,7 @@ const Books = (props) => {
           type="text"
           onChange={titleChangeHandler}
           className={classes.titlesearchbar}
+          maxLength="20"
         />
       </div>
       <div className={classes.scroll}>

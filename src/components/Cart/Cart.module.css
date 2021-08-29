@@ -42,6 +42,11 @@
 .total {
   display: flex;
   justify-content: flex-end;
+  margin-bottom: 0;
+}
+
+.totalcaption {
+  font-size: 1.2rem;
 }
 
 .price {
@@ -93,31 +98,38 @@
   }
 
   .price {
-    margin-bottom: 0.5rem;
+    margin-bottom: 0rem;
     transform: scale(0.8, 0.8);
   }
 }
 
-@media (max-width: 325px) {
+@media (max-height: 450px) {
   .booklist {
-    height: 45%;
+    height: 44%;
   }
 }
 
-@media (max-width: 830px) and (orientation: landscape) {
-  .booklist {
-    height: 45%;
-  }
-}
-@media (max-width: 670px) and (orientation: landscape) {
+@media (max-height: 370px) {
   .booklist {
     height: 40%;
   }
 }
 
-@media (max-height: 330px) and (orientation: landscape) {
+@media (max-height: 330px) {
   .booklist {
-    height: 23%;
+    height: 35%;
+  }
+}
+
+@media (max-height: 310px) {
+  .booklist {
+    height: 25%;
+  }
+}
+
+@media (max-height: 270px) {
+  .booklist {
+    height: 15%;
   }
 }
 

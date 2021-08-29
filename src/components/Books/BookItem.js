@@ -10,6 +10,8 @@ const BookItem = (props) => {
   const [formStatus, setFormStatus] = useState(false);
   const [detailsStatus, setDetailsStatus] = useState(false);
 
+  const nameClasses = `${classes.name} ${formStatus ? classes.shake : ``}`;
+
   const addItemHandler = (type, amount) => {
     cartCtx.addItem({
       id: `${props.id}_${type}`,
@@ -18,6 +20,7 @@ const BookItem = (props) => {
       type: type,
       amount: amount,
     });
+    setFormStatus(true);
   };
 
   const closeMoreinfoHandler = () => {
@@ -29,20 +32,18 @@ const BookItem = (props) => {
   };
 
   useEffect(() => {
-    if (cartCtx.items.length === 0) {
+    const timer = setTimeout(() => {
       setFormStatus(false);
-    } else {
-      if (cartCtx.items.findIndex((item) => props.name === item.name) >= 0) {
-        setFormStatus(true);
-      } else {
-        setFormStatus(false);
-      }
-    }
-  }, [cartCtx.items, props.name]);
+    }, 300);
+
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [formStatus]);
 
   return (
     <li className={classes.book}>
-      <h1>{props.name}</h1>
+      <h1 className={nameClasses}>{props.name}</h1>
       <div className={classes.price}>${props.price.toFixed(2)}</div>
       <div className={classes.moreinfo} onClick={clickMoreinfoHandler}>
         more info
