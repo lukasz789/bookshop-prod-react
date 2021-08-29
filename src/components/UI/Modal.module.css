@@ -40,3 +40,10 @@
     position: absolute;
   }
 }
+
+@media (max-height: 500px) {
+  .modal {
+    height: 90%;
+    top: 2%;
+  }
+}

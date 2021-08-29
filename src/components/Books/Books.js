@@ -7,16 +7,6 @@ import { useState } from "react";
 const Books = (props) => {
   const [searchTitle, setSearchTitle] = useState("");
 
-  // const booksList = allBooks.map((book) => (
-  //   <BookItem
-  //     key={book.id}
-  //     id={book.id}
-  //     name={book.name}
-  //     price={book.price}
-  //     details={book.details}
-  //   />
-  // ));
-
   const booksList = allBooks
     .filter((item) => {
       if (searchTitle === "") {

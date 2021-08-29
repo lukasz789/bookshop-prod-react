@@ -13,7 +13,8 @@ const OrderModalOverlay = (props) => {
     <ul>
       {cartCtx.items.map((item) => (
         <li key={item.id}>
-          {item.name} in {item.type}
+          Book "{item.name}" in {item.type}, {item.amount}{" "}
+          {item.amount > 1 ? "copies" : "copy"}
         </li>
       ))}
     </ul>
