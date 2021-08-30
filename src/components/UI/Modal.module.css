@@ -41,7 +41,7 @@
   }
 }
 
-@media screen and (max-height: 500px) {
+@media screen and (max-height: 812px) {
   .modal {
     height: 90%;
     top: 0%;
