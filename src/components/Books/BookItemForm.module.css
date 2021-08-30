@@ -16,7 +16,7 @@
   outline: none;
 }
 
-@media (max-width: 768px) {
+@media screen and (max-width: 768px) {
   .form {
     display: block;
     margin-bottom: 1rem;

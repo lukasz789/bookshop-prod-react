@@ -82,7 +82,7 @@
   color: rgb(255, 26, 72);
 }
 
-@media (max-width: 768px) {
+@media screen and (max-width: 768px) {
   .buttons {
     display: flex;
     flex-direction: column-reverse;
@@ -103,49 +103,49 @@
   }
 }
 
-@media (max-height: 450px) {
+@media screen and (max-height: 450px) {
   .booklist {
     height: 44%;
   }
 }
 
-@media (max-height: 370px) {
+@media screen and (max-height: 370px) {
   .booklist {
     height: 40%;
   }
 }
 
-@media (max-height: 330px) {
+@media screen and (max-height: 330px) {
   .booklist {
     height: 35%;
   }
 }
 
-@media (max-height: 310px) {
+@media screen and (max-height: 310px) {
   .booklist {
     height: 25%;
   }
 }
 
-@media (max-height: 270px) {
+@media screen and (max-height: 270px) {
   .booklist {
     height: 15%;
   }
 }
 
-@media (max-height: 220px) {
+@media screen and (max-height: 220px) {
   .booklist {
     height: 10%;
   }
 }
 
-@media (max-height: 210px) {
+@media screen and (max-height: 210px) {
   .booklist {
     height: 5%;
   }
 }
 
-@media (min-height: 1300px) and (min-width: 1000px) {
+@media screen and (min-height: 1300px) and (min-width: 1000px) {
   .booklist {
     height: 70%;
   }

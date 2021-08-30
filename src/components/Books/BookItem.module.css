@@ -55,7 +55,7 @@
   }
 }
 
-@media (max-width: 768px) {
+@media screen and (max-width: 768px) {
   .name {
     margin-top: 0.67em;
   }

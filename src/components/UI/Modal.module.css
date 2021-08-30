@@ -26,14 +26,14 @@
   }
 }
 
-@media (max-width: 768px) {
+@media screen and (max-width: 768px) {
   .modal {
     width: 70%;
     left: 13%;
   }
 }
 
-@media (orientation: landscape) and (max-width: 830px) {
+@media screen and (orientation: landscape) and (max-width: 830px) {
   .modal {
     height: 90%;
     top: 0%;
@@ -41,7 +41,7 @@
   }
 }
 
-@media (max-height: 500px) {
+@media screen and (max-height: 500px) {
   .modal {
     height: 90%;
     top: 0%;

@@ -39,7 +39,7 @@
   font-size: 120%;
 }
 
-@media (max-width: 768px) {
+@media screen and (max-width: 768px) {
   .scroll {
     overflow-x: hidden;
   }
@@ -50,14 +50,14 @@
   }
 }
 
-@media (max-width: 768px) and (orientation: portrait) {
+@media screen and (max-width: 768px) and (orientation: portrait) {
   .searchheader {
     width: 60%;
     right: 12%;
   }
 }
 
-@media (max-height: 450px) {
+@media screen and (max-height: 450px) {
   .books {
     top: 20%;
     height: 75%;
