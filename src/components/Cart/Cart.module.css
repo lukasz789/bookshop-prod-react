@@ -133,6 +133,18 @@
   }
 }
 
+@media (max-height: 220px) {
+  .booklist {
+    height: 10%;
+  }
+}
+
+@media (max-height: 210px) {
+  .booklist {
+    height: 5%;
+  }
+}
+
 @media (min-height: 1300px) and (min-width: 1000px) {
   .booklist {
     height: 70%;

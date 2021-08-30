@@ -27,6 +27,7 @@
   right: 10%;
   width: 40%;
   border-radius: 10px;
+  z-index: 1;
 }
 
 .titlesearchbar {
