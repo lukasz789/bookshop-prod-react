@@ -1,4 +1,5 @@
 import classes from "./Books.module.css";
+import Card from "../UI/Card";
 
 import BookItem from "./BookItem";
 import allBooks from "../../assets/DummyBooksList";
@@ -31,7 +32,7 @@ const Books = (props) => {
   };
 
   return (
-    <div className={classes.books}>
+    <Card>
       <div className={classes.searchheader}>
         <input
           placeholder="Search title..."
@@ -44,7 +45,7 @@ const Books = (props) => {
       <div className={classes.scroll}>
         <ul>{booksList}</ul>
       </div>
-    </div>
+    </Card>
   );
 };
 

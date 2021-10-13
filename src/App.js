@@ -1,67 +1,66 @@
-import React, { Suspense } from "react";
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { Switch, Route, Redirect } from "react-router-dom";
 
-import Books from "./components/Books/Books";
-import Header from "./components/Header/Header";
-import CartProvider from "./store/CartProvider";
-import Backdrop from "./components/UI/Backdrop";
-import { CircularProgress } from "@material-ui/core";
-import BackgroundImage from "./components/UI/BackgroundImage";
+//layouts
+import Mainlayout from "./layouts/Mainlayout";
 
-const Cart = React.lazy(() => import("./components/Cart/Cart"));
-const OrderModal = React.lazy(() => import("./components/Cart/OrderModal"));
+//pages
+import Mainpage from "./pages/Mainpage";
+import Register from "./pages/Register";
+import Login from "./pages/Login";
 
-function App() {
-  const [cartVisibility, setCartVisibility] = useState(false);
-  const [orderModalVisibility, setOrderModalVisibility] = useState(false);
+import { auth, handleNewProfile } from "./firebase/utils";
 
-  const openCartHandler = () => {
-    setCartVisibility(true);
-  };
+const App = () => {
+  const [currentUser, setCurrentUser] = useState("");
 
-  const hideCartHandler = () => {
-    setCartVisibility(false);
-  };
-
-  const hideOrderModalHandler = () => {
-    setOrderModalVisibility(false);
-  };
-
-  const openOrderModalHandler = () => {
-    setOrderModalVisibility(true);
-  };
+  useEffect(() => {
+    const authListener = auth.onAuthStateChanged(async (userAuth) => {
+      if (userAuth) {
+        const userRef = await handleNewProfile(userAuth);
+        userRef.onSnapshot((snapshot) => {
+          setCurrentUser({ id: snapshot.id, ...snapshot.data() });
+        });
+      }
+      setCurrentUser(null);
+    });
+    return () => authListener();
+  }, []);
 
   return (
-    <Suspense
-      fallback={
-        <React.Fragment>
-          <Backdrop />
-          <div
-            style={{
-              position: "fixed",
-              left: "calc(50% - 2rem)",
-              top: "calc(50% - 2rem)",
-            }}
-          >
-            <CircularProgress size={"4rem"} color={"secondary"} />
-          </div>
-          <BackgroundImage />
-        </React.Fragment>
-      }
-    >
-      <CartProvider>
-        <Header onOpen={openCartHandler} />
-        <Books />
-        {cartVisibility && (
-          <Cart
-            onClose={hideCartHandler}
-            onOrderModalToggle={openOrderModalHandler}
-          />
-        )}
-        {orderModalVisibility && <OrderModal onClick={hideOrderModalHandler} />}
-      </CartProvider>
-    </Suspense>
+    <React.Fragment>
+      <Switch>
+        <Route
+          path="/register"
+          render={() => (
+            <Mainlayout currentUser={currentUser}>
+              <Register />
+            </Mainlayout>
+          )}
+        />
+        <Route
+          path="/login"
+          render={() =>
+            currentUser ? (
+              <Redirect to="/" />
+            ) : (
+              <Mainlayout currentUser={currentUser}>
+                <Login />
+              </Mainlayout>
+            )
+          }
+        />
+        <Route
+          path="/"
+          render={() => (
+            <Mainlayout currentUser={currentUser}>
+              <Mainpage />
+            </Mainlayout>
+          )}
+        />
+      </Switch>
+    </React.Fragment>
   );
-}
+};
 
 export default App;

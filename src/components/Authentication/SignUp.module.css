@@ -1,0 +1,10 @@
+.registercaption {
+  text-transform: uppercase;
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+
+.mainwrap {
+    height: auto;
+}

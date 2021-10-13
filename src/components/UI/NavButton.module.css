@@ -1,0 +1,16 @@
+.button {
+  font: inherit;
+  background: transparent;
+  border: none;
+  color: whitesmoke;
+  padding: 0.5rem 0rem;
+  font-size: 115%;
+  cursor: pointer;
+  text-align: center;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+}
+
+.button:hover,
+.button:active {
+  color: white;
+}

@@ -1,17 +1,3 @@
-.books {
-  position: absolute;
-  top: 12%;
-  height: 80%;
-  background-color: white;
-  padding: 1%;
-  border-radius: 25px;
-  margin: auto;
-  width: 70%;
-  left: 14%;
-  box-shadow: 0 1px 18px 10px rgba(0, 0, 0, 1);
-  background-color: whitesmoke;
-}
-
 .scroll {
   height: 100%;
   overflow: auto;
@@ -43,23 +29,11 @@
   .scroll {
     overflow-x: hidden;
   }
-
-  .books {
-    width: 85%;
-    left: 6.5%;
-  }
 }
 
 @media screen and (max-width: 768px) and (orientation: portrait) {
   .searchheader {
     width: 60%;
     right: 12%;
-  }
-}
-
-@media screen and (max-height: 450px) {
-  .books {
-    top: 20%;
-    height: 75%;
   }
 }
