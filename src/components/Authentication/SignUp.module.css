@@ -5,6 +5,40 @@
   text-align: center;
 }
 
+.scroll {
+  height: 100%;
+  overflow-y: hidden;
+}
+
 .mainwrap {
-    height: auto;
+  height: 33rem;
+}
+
+.btn {
+  width: 70%;
+  display: block;
+  margin: 2rem auto 0rem;
+}
+
+@media screen and (max-width: 500px) {
+  .btn {
+    width: 90%;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .mainwrap {
+    width: 650px;
+    left: calc(50% - 325px - 1%);
+  }
+}
+
+@media screen and (max-height: 620px) {
+  .mainwrap {
+    height: 70%;
+  }
+
+  .scroll {
+    overflow-y: scroll;
+  }
 }

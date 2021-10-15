@@ -32,11 +32,15 @@ const App = () => {
       <Switch>
         <Route
           path="/register"
-          render={() => (
-            <Mainlayout currentUser={currentUser}>
-              <Register />
-            </Mainlayout>
-          )}
+          render={() =>
+            currentUser ? (
+              <Redirect to="/" />
+            ) : (
+              <Mainlayout currentUser={currentUser}>
+                <Register />
+              </Mainlayout>
+            )
+          }
         />
         <Route
           path="/login"

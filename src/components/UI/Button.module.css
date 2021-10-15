@@ -8,12 +8,19 @@
   font-size: 115%;
   cursor: pointer;
   text-align: center;
-  text-shadow: 1px 1px 1px rgba(0, 0, 0, .5);
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
 }
 
 .button:hover,
 .button:active {
   background: rgb(1, 94, 1);
-  border-color: rgb(1, 94, 1) ;
+  border-color: rgb(1, 94, 1);
 }
 
+button:disabled,
+button:disabled:hover,
+button:disabled:active {
+  background-color: #ccc;
+  color: #292929;
+  cursor: not-allowed;
+}
