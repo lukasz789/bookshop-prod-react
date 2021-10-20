@@ -1,27 +1,46 @@
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import { withRouter } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 
 import classes from "./SignIn.module.css";
 import Card from "../UI/Card";
-
 import Button from "../UI/Button";
 import InputWrap from "../UI/forms/InputWrap";
+import FormCaption from "../UI/forms/FormCaption";
+import LoadingScreen from "../UI/LoadingScreen";
 
-import { signInWithGoogle, auth } from "../../firebase/utils";
+import { loginUser, loginWithGoogleUser } from "../../redux-store/auth-actions";
 
-const Login = () => {
+import { validateEmail } from "../../hooks/use-input";
+import { validatePassword } from "../../hooks/use-input";
+
+const Login = (props) => {
+  const loginSuccess = useSelector((state) => state.auth.loginSuccess);
+  const spinnerVisible = useSelector((state) => state.ui.spinner);
+  const dispatch = useDispatch();
+
   const [mail, setMail] = useState("");
   const [password, setPassword] = useState("");
 
-  const submitHandler = async (event) => {
+  const { history } = props;
+
+  const resetForm = () => {
+    setMail("");
+    setPassword("");
+  };
+
+  useEffect(() => {
+    if (loginSuccess) {
+      history.push("/");
+      resetForm();
+    }
+  }, [loginSuccess, history]);
+
+  const submitHandler = (event) => {
     event.preventDefault();
-
-    try {
-      await auth.signInWithEmailAndPassword(mail, password);
-
-      setMail("");
-      setPassword("");
-    } catch (error) {
-      console.log(error);
+    if (validateEmail(mail) && validatePassword(password)) {
+      dispatch(loginUser(mail, password));
     }
   };
 
@@ -33,39 +52,57 @@ const Login = () => {
     setPassword(event.target.value);
   };
 
+  const signInWithGoogleHandler = () => {
+    dispatch(loginWithGoogleUser());
+  };
+
   return (
-    <Card className={classes.mainwrap}>
-      <div className={classes.scroll}>
-        <h1 className={classes.logincaption}>Login</h1>
-        <form onSubmit={submitHandler}>
-          <InputWrap>
-            <label htmlFor="email">Email</label>
-            <input
-              type="email"
-              id="email"
-              value={mail}
-              onChange={mailChangeHandler}
-            />
-          </InputWrap>
-          <InputWrap>
-            <label htmlFor="password">Password</label>
-            <input
-              type="password"
-              id="password"
-              value={password}
-              onChange={passwordChangeHandler}
-            />
-          </InputWrap>
-          <Button className={classes.btn} type="submit">
-            Login
-          </Button>
-        </form>
-        <Button className={classes.btnGoogle} onClick={signInWithGoogle}>
-          Sign in with Google
-        </Button>
-      </div>
-    </Card>
+    <React.Fragment>
+      {spinnerVisible ? (
+        <LoadingScreen />
+      ) : (
+        <Card className={classes.mainwrap}>
+          <div className={classes.scroll}>
+            <FormCaption>Login</FormCaption>
+            <form onSubmit={submitHandler}>
+              <InputWrap>
+                <label htmlFor="email">Email</label>
+                <input
+                  type="email"
+                  id="email"
+                  value={mail}
+                  onChange={mailChangeHandler}
+                />
+              </InputWrap>
+              <InputWrap>
+                <label htmlFor="password">Password</label>
+                <input
+                  type="password"
+                  id="password"
+                  value={password}
+                  onChange={passwordChangeHandler}
+                />
+              </InputWrap>
+              <div className={classes.resetWrap}>
+                <Link to="/resetPassword">
+                  <p className={classes.reset}>Lost password?</p>
+                </Link>
+              </div>
+              <Button className={classes.btn} type="submit">
+                Login
+              </Button>
+            </form>
+            <Button
+              className={classes.btnGoogle}
+              onClick={signInWithGoogleHandler}
+            >
+              Sign in with Google
+            </Button>
+          </div>
+        </Card>
+      )}
+    </React.Fragment>
   );
 };
 
-export default Login;
+export default withRouter(Login);

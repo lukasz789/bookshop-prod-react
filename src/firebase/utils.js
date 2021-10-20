@@ -24,7 +24,7 @@ export const handleNewProfile = async (userAuth, additionalData) => {
   const snapshot = await userRef.get(); //object returned with some data about user
 
   if (!snapshot.exists) {
-    const timestamp = new Date();
+    const timestamp = new Date().getTime();
 
     try {
       await userRef.set({

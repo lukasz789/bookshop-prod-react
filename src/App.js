@@ -1,5 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
+
+//redux store
+import { useSelector, useDispatch } from "react-redux";
+import { authActions } from "./redux-store/auth-slice";
 
 //layouts
 import Mainlayout from "./layouts/Mainlayout";
@@ -8,24 +12,28 @@ import Mainlayout from "./layouts/Mainlayout";
 import Mainpage from "./pages/Mainpage";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
+import PasswordReset from "./pages/PasswordReset";
 
 import { auth, handleNewProfile } from "./firebase/utils";
 
-const App = () => {
-  const [currentUser, setCurrentUser] = useState("");
+const App = (props) => {
+  const dispatch = useDispatch();
+  const currentUser = useSelector((state) => state.auth.currentUser);
 
   useEffect(() => {
     const authListener = auth.onAuthStateChanged(async (userAuth) => {
       if (userAuth) {
         const userRef = await handleNewProfile(userAuth);
         userRef.onSnapshot((snapshot) => {
-          setCurrentUser({ id: snapshot.id, ...snapshot.data() });
+          dispatch(
+            authActions.setCurrentUser({ id: snapshot.id, ...snapshot.data() })
+          );
         });
       }
-      setCurrentUser(null);
+      dispatch(authActions.setCurrentUser(null));
     });
     return () => authListener();
-  }, []);
+  }, [dispatch]);
 
   return (
     <React.Fragment>
@@ -36,7 +44,7 @@ const App = () => {
             currentUser ? (
               <Redirect to="/" />
             ) : (
-              <Mainlayout currentUser={currentUser}>
+              <Mainlayout>
                 <Register />
               </Mainlayout>
             )
@@ -48,8 +56,20 @@ const App = () => {
             currentUser ? (
               <Redirect to="/" />
             ) : (
-              <Mainlayout currentUser={currentUser}>
+              <Mainlayout>
                 <Login />
+              </Mainlayout>
+            )
+          }
+        />
+        <Route
+          path="/resetPassword"
+          render={() =>
+            currentUser ? (
+              <Redirect to="/" />
+            ) : (
+              <Mainlayout>
+                <PasswordReset />
               </Mainlayout>
             )
           }
@@ -57,7 +77,7 @@ const App = () => {
         <Route
           path="/"
           render={() => (
-            <Mainlayout currentUser={currentUser}>
+            <Mainlayout>
               <Mainpage />
             </Mainlayout>
           )}

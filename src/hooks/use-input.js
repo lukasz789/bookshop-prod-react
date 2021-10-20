@@ -50,3 +50,21 @@ const useInput = (validateValue) => {
 };
 
 export default useInput;
+
+export const validateEmail = (value) => {
+  //eslint-disable-next-line
+  if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(value)) {
+    return true;
+  } else {
+    return false;
+  }
+};
+
+export const validatePassword = (value) => {
+  //eslint-disable-next-line
+  if (/(?=.*[0-9a-zA-Z]).{6,}/.test(value)) {
+    return true;
+  } else {
+    return false;
+  }
+};

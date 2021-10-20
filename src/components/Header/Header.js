@@ -1,16 +1,19 @@
 import React from "react";
+import { useSelector } from "react-redux";
 
 import HeaderBtn from "./HeaderBtn";
 
 import classes from "./Header.module.css";
 import BackgroundImage from "../UI/BackgroundImage";
 
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import NavButton from "../UI/NavButton";
 
 import { auth } from "../../firebase/utils";
 
 const Header = (props) => {
+  const currentUser = useSelector((state) => state.auth.currentUser);
+
   const logoutHandler = () => {
     auth.signOut();
   };
@@ -22,17 +25,23 @@ const Header = (props) => {
           <h1 className={classes.bookshopcaption}>Bookshop</h1>
         </Link>
         <div className={classes.rightnav}>
-          {!props.currentUser && (
+          {!currentUser && (
             <React.Fragment>
-              <Link to="/register" style={{ textDecoration: "none" }}>
+              <NavLink
+                to="/register"
+                activeStyle={{ borderBottom: "1.5px solid white" }}
+              >
                 <NavButton>Register</NavButton>
-              </Link>
-              <Link to="/login" style={{ textDecoration: "none" }}>
+              </NavLink>
+              <NavLink
+                to="/login"
+                activeStyle={{ borderBottom: "1.5px solid white" }}
+              >
                 <NavButton>Login</NavButton>
-              </Link>
+              </NavLink>
             </React.Fragment>
           )}
-          {props.currentUser && (
+          {currentUser && (
             <React.Fragment>
               <NavButton onClick={logoutHandler}>Logout</NavButton>
               <HeaderBtn onClick={props.onOpen} />

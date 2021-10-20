@@ -1,11 +1,13 @@
-import React, { Suspense } from "react";
-import { useState } from "react";
+import React, { Suspense, useState, useEffect } from "react";
 
 import Header from "../components/Header/Header";
 import CartProvider from "../store/CartProvider";
-import Backdrop from "../components/UI/Backdrop";
-import { CircularProgress } from "@material-ui/core";
-import BackgroundImage from "../components/UI/BackgroundImage";
+
+import LoadingScreen from "../components/UI/LoadingScreen";
+import FormSubmissionPopup from "../components/UI/forms/FormSubmissionPopup";
+
+import { useDispatch, useSelector } from "react-redux";
+import { uiActions } from "../redux-store/ui-slice";
 
 const Cart = React.lazy(() => import("../components/Cart/Cart"));
 const OrderModal = React.lazy(() => import("../components/Cart/OrderModal"));
@@ -13,6 +15,9 @@ const OrderModal = React.lazy(() => import("../components/Cart/OrderModal"));
 const Mainlayout = (props) => {
   const [cartVisibility, setCartVisibility] = useState(false);
   const [orderModalVisibility, setOrderModalVisibility] = useState(false);
+
+  const popupVisible = useSelector((state) => state.ui.popup);
+  const dispatch = useDispatch();
 
   const openCartHandler = () => {
     setCartVisibility(true);
@@ -30,26 +35,22 @@ const Mainlayout = (props) => {
     setOrderModalVisibility(true);
   };
 
+  useEffect(() => {
+    if (popupVisible) {
+      const popUpDisabler = setTimeout(() => {
+        dispatch(uiActions.setPopup(false));
+      }, 4000);
+      return () => {
+        return clearTimeout(popUpDisabler);
+      };
+    }
+  }, [popupVisible, dispatch]);
+
   return (
-    <Suspense
-      fallback={
-        <React.Fragment>
-          <Backdrop />
-          <div
-            style={{
-              position: "fixed",
-              left: "calc(50% - 2rem)",
-              top: "calc(50% - 2rem)",
-            }}
-          >
-            <CircularProgress size={"4rem"} color={"secondary"} />
-          </div>
-          <BackgroundImage />
-        </React.Fragment>
-      }
-    >
+    <Suspense fallback={<LoadingScreen />}>
       <CartProvider>
         <Header onOpen={openCartHandler} {...props} />
+        <FormSubmissionPopup />
         {props.children}
         {cartVisibility && (
           <Cart
