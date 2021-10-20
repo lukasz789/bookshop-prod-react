@@ -11,7 +11,7 @@ import store from "./redux-store/index";
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <BrowserRouter>
+      <BrowserRouter basename="/bookshop-prod-react">
         <App />
       </BrowserRouter>
     </Provider>
