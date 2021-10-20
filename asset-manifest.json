@@ -1,12 +1,12 @@
 {
   "files": {
-    "main.css": "/bookshop-prod-react/static/css/main.67174b07.chunk.css",
-    "main.js": "/bookshop-prod-react/static/js/main.8c9eb0c8.chunk.js",
-    "main.js.map": "/bookshop-prod-react/static/js/main.8c9eb0c8.chunk.js.map",
+    "main.css": "/bookshop-prod-react/static/css/main.f0b98eaf.chunk.css",
+    "main.js": "/bookshop-prod-react/static/js/main.6fe6e7d6.chunk.js",
+    "main.js.map": "/bookshop-prod-react/static/js/main.6fe6e7d6.chunk.js.map",
     "runtime-main.js": "/bookshop-prod-react/static/js/runtime-main.8f66d6b6.js",
     "runtime-main.js.map": "/bookshop-prod-react/static/js/runtime-main.8f66d6b6.js.map",
-    "static/js/2.fb70f4f9.chunk.js": "/bookshop-prod-react/static/js/2.fb70f4f9.chunk.js",
-    "static/js/2.fb70f4f9.chunk.js.map": "/bookshop-prod-react/static/js/2.fb70f4f9.chunk.js.map",
+    "static/js/2.d4d90204.chunk.js": "/bookshop-prod-react/static/js/2.d4d90204.chunk.js",
+    "static/js/2.d4d90204.chunk.js.map": "/bookshop-prod-react/static/js/2.d4d90204.chunk.js.map",
     "static/css/3.b6669d1b.chunk.css": "/bookshop-prod-react/static/css/3.b6669d1b.chunk.css",
     "static/js/3.053957fe.chunk.js": "/bookshop-prod-react/static/js/3.053957fe.chunk.js",
     "static/js/3.053957fe.chunk.js.map": "/bookshop-prod-react/static/js/3.053957fe.chunk.js.map",
@@ -16,14 +16,14 @@
     "index.html": "/bookshop-prod-react/index.html",
     "static/css/3.b6669d1b.chunk.css.map": "/bookshop-prod-react/static/css/3.b6669d1b.chunk.css.map",
     "static/css/4.172c6873.chunk.css.map": "/bookshop-prod-react/static/css/4.172c6873.chunk.css.map",
-    "static/css/main.67174b07.chunk.css.map": "/bookshop-prod-react/static/css/main.67174b07.chunk.css.map",
-    "static/js/2.fb70f4f9.chunk.js.LICENSE.txt": "/bookshop-prod-react/static/js/2.fb70f4f9.chunk.js.LICENSE.txt",
+    "static/css/main.f0b98eaf.chunk.css.map": "/bookshop-prod-react/static/css/main.f0b98eaf.chunk.css.map",
+    "static/js/2.d4d90204.chunk.js.LICENSE.txt": "/bookshop-prod-react/static/js/2.d4d90204.chunk.js.LICENSE.txt",
     "static/media/background_books_image.3a124e66.jpg": "/bookshop-prod-react/static/media/background_books_image.3a124e66.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.8f66d6b6.js",
-    "static/js/2.fb70f4f9.chunk.js",
-    "static/css/main.67174b07.chunk.css",
-    "static/js/main.8c9eb0c8.chunk.js"
+    "static/js/2.d4d90204.chunk.js",
+    "static/css/main.f0b98eaf.chunk.css",
+    "static/js/main.6fe6e7d6.chunk.js"
   ]
 }
