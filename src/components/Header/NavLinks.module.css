@@ -1,0 +1,10 @@
+.active {
+  border-bottom: 1.5px solid white;
+}
+
+@media screen and (max-width: 768px) {
+  .active {
+    border: none;
+    background-color: #612424;
+  }
+}

@@ -19,13 +19,12 @@
 }
 
 .header h1:hover {
- color: whitesmoke;
- cursor: pointer;
- 
+  color: whitesmoke;
+  cursor: pointer;
 }
 
-.rightnav > * {
-  margin-left: 1.5rem;
+.navlinks {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
-
-

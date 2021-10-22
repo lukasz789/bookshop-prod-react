@@ -30,9 +30,11 @@ const OrderModalOverlay = (props) => {
 
   return (
     <div className={classes.order}>
-      <h2>Thank You for shopping with us!</h2>
-      <h4>You have bought as follows: ({totalBought} book(s) total)</h4>
-      {cartItems}
+      <div className={classes.scroll}>
+        <h2>Thank You for shopping with us!</h2>
+        <h4>You have bought as follows: ({totalBought} book(s) total)</h4>
+        {cartItems}
+      </div>
       <Button
         className={classes.confirmBtn}
         onClick={() => {
