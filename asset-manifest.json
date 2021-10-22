@@ -1,29 +1,29 @@
 {
   "files": {
-    "main.css": "/bookshop-prod-react/static/css/main.f0b98eaf.chunk.css",
-    "main.js": "/bookshop-prod-react/static/js/main.6fe6e7d6.chunk.js",
-    "main.js.map": "/bookshop-prod-react/static/js/main.6fe6e7d6.chunk.js.map",
-    "runtime-main.js": "/bookshop-prod-react/static/js/runtime-main.8f66d6b6.js",
-    "runtime-main.js.map": "/bookshop-prod-react/static/js/runtime-main.8f66d6b6.js.map",
-    "static/js/2.d4d90204.chunk.js": "/bookshop-prod-react/static/js/2.d4d90204.chunk.js",
-    "static/js/2.d4d90204.chunk.js.map": "/bookshop-prod-react/static/js/2.d4d90204.chunk.js.map",
+    "main.css": "/bookshop-prod-react/static/css/main.f92b9170.chunk.css",
+    "main.js": "/bookshop-prod-react/static/js/main.55d05962.chunk.js",
+    "main.js.map": "/bookshop-prod-react/static/js/main.55d05962.chunk.js.map",
+    "runtime-main.js": "/bookshop-prod-react/static/js/runtime-main.4a5ff644.js",
+    "runtime-main.js.map": "/bookshop-prod-react/static/js/runtime-main.4a5ff644.js.map",
+    "static/js/2.3b7b4b1f.chunk.js": "/bookshop-prod-react/static/js/2.3b7b4b1f.chunk.js",
+    "static/js/2.3b7b4b1f.chunk.js.map": "/bookshop-prod-react/static/js/2.3b7b4b1f.chunk.js.map",
     "static/css/3.b6669d1b.chunk.css": "/bookshop-prod-react/static/css/3.b6669d1b.chunk.css",
-    "static/js/3.053957fe.chunk.js": "/bookshop-prod-react/static/js/3.053957fe.chunk.js",
-    "static/js/3.053957fe.chunk.js.map": "/bookshop-prod-react/static/js/3.053957fe.chunk.js.map",
-    "static/css/4.172c6873.chunk.css": "/bookshop-prod-react/static/css/4.172c6873.chunk.css",
-    "static/js/4.453775d5.chunk.js": "/bookshop-prod-react/static/js/4.453775d5.chunk.js",
-    "static/js/4.453775d5.chunk.js.map": "/bookshop-prod-react/static/js/4.453775d5.chunk.js.map",
+    "static/js/3.1b33b065.chunk.js": "/bookshop-prod-react/static/js/3.1b33b065.chunk.js",
+    "static/js/3.1b33b065.chunk.js.map": "/bookshop-prod-react/static/js/3.1b33b065.chunk.js.map",
+    "static/css/4.50893931.chunk.css": "/bookshop-prod-react/static/css/4.50893931.chunk.css",
+    "static/js/4.037ac40b.chunk.js": "/bookshop-prod-react/static/js/4.037ac40b.chunk.js",
+    "static/js/4.037ac40b.chunk.js.map": "/bookshop-prod-react/static/js/4.037ac40b.chunk.js.map",
     "index.html": "/bookshop-prod-react/index.html",
     "static/css/3.b6669d1b.chunk.css.map": "/bookshop-prod-react/static/css/3.b6669d1b.chunk.css.map",
-    "static/css/4.172c6873.chunk.css.map": "/bookshop-prod-react/static/css/4.172c6873.chunk.css.map",
-    "static/css/main.f0b98eaf.chunk.css.map": "/bookshop-prod-react/static/css/main.f0b98eaf.chunk.css.map",
-    "static/js/2.d4d90204.chunk.js.LICENSE.txt": "/bookshop-prod-react/static/js/2.d4d90204.chunk.js.LICENSE.txt",
+    "static/css/4.50893931.chunk.css.map": "/bookshop-prod-react/static/css/4.50893931.chunk.css.map",
+    "static/css/main.f92b9170.chunk.css.map": "/bookshop-prod-react/static/css/main.f92b9170.chunk.css.map",
+    "static/js/2.3b7b4b1f.chunk.js.LICENSE.txt": "/bookshop-prod-react/static/js/2.3b7b4b1f.chunk.js.LICENSE.txt",
     "static/media/background_books_image.3a124e66.jpg": "/bookshop-prod-react/static/media/background_books_image.3a124e66.jpg"
   },
   "entrypoints": [
-    "static/js/runtime-main.8f66d6b6.js",
-    "static/js/2.d4d90204.chunk.js",
-    "static/css/main.f0b98eaf.chunk.css",
-    "static/js/main.6fe6e7d6.chunk.js"
+    "static/js/runtime-main.4a5ff644.js",
+    "static/js/2.3b7b4b1f.chunk.js",
+    "static/css/main.f92b9170.chunk.css",
+    "static/js/main.55d05962.chunk.js"
   ]
 }
