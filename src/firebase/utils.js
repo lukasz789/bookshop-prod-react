@@ -40,3 +40,4 @@ export const handleNewProfile = async (userAuth, additionalData) => {
 
   return userRef; //used to update local state of app(header fe)
 };
+
