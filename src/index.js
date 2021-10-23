@@ -11,7 +11,7 @@ import store from "./redux-store/index";
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <HashRouter basename="/bookshop-prod-react">
+      <HashRouter basename="/">
         <App />
       </HashRouter>
     </Provider>

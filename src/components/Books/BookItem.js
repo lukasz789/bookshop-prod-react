@@ -5,7 +5,11 @@ import BookItemForm from "./BookItemForm";
 import { useState } from "react";
 import BookDetails from "./BookDetails";
 
+import { useSelector } from "react-redux";
+
 const BookItem = (props) => {
+  const currentUser = useSelector((state) => state.auth.currentUser);
+
   const cartCtx = useContext(CartContext);
   const [formStatus, setFormStatus] = useState(false);
   const [detailsStatus, setDetailsStatus] = useState(false);
@@ -13,14 +17,19 @@ const BookItem = (props) => {
   const nameClasses = `${classes.name} ${formStatus ? classes.shake : ``}`;
 
   const addItemHandler = (type, amount) => {
-    cartCtx.addItem({
-      id: `${props.id}_${type}`,
-      name: props.name,
-      price: props.price,
-      type: type,
-      amount: amount,
-    });
-    setFormStatus(true);
+    if (currentUser) {
+      cartCtx.addItem({
+        id: `${props.id}_${type}`,
+        name: props.name,
+        price: props.price,
+        type: type,
+        amount: amount,
+      });
+      setFormStatus(true);
+    } else {
+      return;
+      //notification
+    }
   };
 
   const closeMoreinfoHandler = () => {
