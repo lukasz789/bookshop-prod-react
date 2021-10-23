@@ -1,10 +1,13 @@
 import { useReducer } from "react";
 import CartContext from "./cart-context";
 
-const defaultCartState = {
-  items: [],
-  totalAmount: 0,
-};
+const defaultCartState =
+  localStorage.getItem("cart") === null
+    ? {
+        items: [],
+        totalAmount: 0,
+      }
+    : JSON.parse(localStorage.getItem("cart"));
 
 const cartReducer = (state, action) => {
   if (action.type === "ADD") {
@@ -28,6 +31,13 @@ const cartReducer = (state, action) => {
 
     console.log(updatedItems);
     console.log(updatedTotalAmount);
+    localStorage.setItem(
+      "cart",
+      JSON.stringify({
+        items: updatedItems,
+        totalAmount: updatedTotalAmount,
+      })
+    );
     return {
       items: updatedItems,
       totalAmount: updatedTotalAmount,
@@ -45,6 +55,13 @@ const cartReducer = (state, action) => {
     const updatedItems = state.items.filter((item) => item.id !== action.id);
 
     console.log(updatedItems);
+    localStorage.setItem(
+      "cart",
+      JSON.stringify({
+        items: updatedItems,
+        totalAmount: updatedTotalAmount,
+      })
+    );
     return {
       items: updatedItems,
       totalAmount: updatedTotalAmount,
@@ -72,6 +89,13 @@ const cartReducer = (state, action) => {
     }
 
     console.log(updatedItems);
+    localStorage.setItem(
+      "cart",
+      JSON.stringify({
+        items: updatedItems,
+        totalAmount: updatedTotalAmount,
+      })
+    );
     return {
       items: updatedItems,
       totalAmount: updatedTotalAmount,
@@ -79,6 +103,13 @@ const cartReducer = (state, action) => {
   }
 
   if (action.type === "CLEAR") {
+    localStorage.setItem(
+      "cart",
+      JSON.stringify({
+        items: [],
+        totalAmount: 0,
+      })
+    );
     return {
       items: [],
       totalAmount: 0,

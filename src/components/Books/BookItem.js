@@ -5,9 +5,11 @@ import BookItemForm from "./BookItemForm";
 import { useState } from "react";
 import BookDetails from "./BookDetails";
 
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { uiActions } from "../../redux-store/ui-slice";
 
 const BookItem = (props) => {
+  const dispatch = useDispatch();
   const currentUser = useSelector((state) => state.auth.currentUser);
 
   const cartCtx = useContext(CartContext);
@@ -27,8 +29,13 @@ const BookItem = (props) => {
       });
       setFormStatus(true);
     } else {
-      return;
-      //notification
+      dispatch(
+        uiActions.setNotification({
+          status: "error",
+          message: "Please log in!",
+        })
+      );
+      dispatch(uiActions.setPopup(true));
     }
   };
 
