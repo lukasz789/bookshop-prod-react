@@ -6,6 +6,8 @@ const uiSlice = createSlice({
     spinner: null,
     notification: null,
     popup: false,
+    mobileNavMenu: false,
+    orderListRender: true,
   },
   reducers: {
     showSpinner(state, action) {
@@ -19,6 +21,12 @@ const uiSlice = createSlice({
     },
     setPopup(state, action) {
       state.popup = action.payload;
+    },
+    setMobileNavMenu(state, action) {
+      state.mobileNavMenu = action.payload;
+    },
+    setOrderListRender(state, action) {
+      state.orderListRender = action.payload;
     },
   },
 });

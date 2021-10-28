@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 import classes from "./MobileNavigation.module.css";
 
@@ -9,28 +9,36 @@ import CloseIcon from "@material-ui/icons/Close";
 
 import ReactDOM from "react-dom";
 
-const MobileNavigation = () => {
-  const [openMenu, setOpenMenu] = useState(false);
+import { useDispatch, useSelector } from "react-redux";
+import { uiActions } from "../../redux-store/ui-slice";
 
-  const clickMenuBtnHandler = () => {
-    setOpenMenu(!openMenu);
+const MobileNavigation = () => {
+  const dispatch = useDispatch();
+  const mobileNavMenu = useSelector((state) => state.ui.mobileNavMenu);
+
+  const openMenuBtnHandler = () => {
+    dispatch(uiActions.setMobileNavMenu(true));
+  };
+
+  const closeMenuBtnHandler = () => {
+    dispatch(uiActions.setMobileNavMenu(false));
   };
 
   return (
     <React.Fragment>
-      {!openMenu && (
+      {!mobileNavMenu && (
         <div className={classes.menu}>
-          <MenuIcon fontSize="large" onClick={clickMenuBtnHandler} />
+          <MenuIcon fontSize="large" onClick={openMenuBtnHandler} />
         </div>
       )}
-      {openMenu && (
+      {mobileNavMenu && (
         <div className={classes.menu}>
-          <CloseIcon fontSize="large" onClick={clickMenuBtnHandler} />
+          <CloseIcon fontSize="large" onClick={closeMenuBtnHandler} />
         </div>
       )}
       {ReactDOM.createPortal(
         <div className={classes.mobileNav}>
-          {openMenu && (
+          {mobileNavMenu && (
             <div className={classes.popupMenu}>
               <NavLinks />
             </div>

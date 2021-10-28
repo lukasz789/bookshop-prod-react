@@ -7,7 +7,7 @@ import classes from "./PasswordRecovery.module.css";
 
 import Card from "../UI/Card";
 import Button from "../UI/Button";
-import FormCaption from "../UI/forms/FormCaption";
+import Caption from "../UI/Caption";
 import InputWrap from "../UI/forms/InputWrap";
 import LoadingScreen from "../UI/LoadingScreen";
 
@@ -52,7 +52,7 @@ const PasswordRecovery = (props) => {
       ) : (
         <Card className={classes.mainwrap}>
           <div className={classes.scroll}>
-            <FormCaption>Reset password</FormCaption>
+            <Caption>Reset password</Caption>
             <form onSubmit={handleFormSubmit}>
               <InputWrap>
                 <label htmlFor="email">Email</label>

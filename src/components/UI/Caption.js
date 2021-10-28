@@ -1,6 +1,6 @@
-import classes from "./FormCaption.module.css";
+import classes from "./Caption.module.css";
 
-const FormCaption = (props) => {
+const Caption = (props) => {
   return (
     <h1 className={`${props.className} ${classes.caption} `}>
       {props.children}
@@ -8,4 +8,4 @@ const FormCaption = (props) => {
   );
 };
 
-export default FormCaption;
+export default Caption;

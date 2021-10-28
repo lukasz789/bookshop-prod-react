@@ -13,6 +13,7 @@ import Mainpage from "./pages/Mainpage";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
 import PasswordReset from "./pages/PasswordReset";
+import Orderspage from "./pages/Orderspage";
 
 import { auth, handleNewProfile } from "./firebase/utils";
 
@@ -70,6 +71,18 @@ const App = (props) => {
             ) : (
               <Mainlayout>
                 <PasswordReset />
+              </Mainlayout>
+            )
+          }
+        />
+        <Route
+          path="/orders"
+          render={() =>
+            !currentUser ? (
+              <Redirect to="/" />
+            ) : (
+              <Mainlayout>
+                <Orderspage />
               </Mainlayout>
             )
           }

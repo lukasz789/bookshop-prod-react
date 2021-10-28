@@ -9,7 +9,7 @@ import classes from "./SignUp.module.css";
 import Card from "../UI/Card";
 import Button from "../UI/Button";
 import InputWrap from "../UI/forms/InputWrap";
-import FormCaption from "../UI/forms/FormCaption";
+import Caption from "../UI/Caption";
 import LoadingScreen from "../UI/LoadingScreen";
 
 import useInput from "../../hooks/use-input";
@@ -91,7 +91,7 @@ const Login = (props) => {
       ) : (
         <Card className={classes.mainwrap}>
           <div className={classes.scroll}>
-            <FormCaption>Register</FormCaption>
+            <Caption>Register</Caption>
             <form onSubmit={submitHandler}>
               <InputWrap hasError={nameHasError}>
                 <label htmlFor="name">Name</label>

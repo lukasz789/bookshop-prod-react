@@ -1,0 +1,23 @@
+.order:hover {
+  background-color: #ddd !important;
+  cursor: pointer;
+}
+
+.order td {
+  padding: 8px;
+  font-size: 104%;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.order td:first-child {
+  border-right: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+}
+.order td:last-child {
+  border-left: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+}
+
+.order td:nth-child(even) {
+  border-bottom: 1px solid #ddd;
+}

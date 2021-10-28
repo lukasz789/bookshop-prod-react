@@ -7,7 +7,7 @@ import classes from "./SignIn.module.css";
 import Card from "../UI/Card";
 import Button from "../UI/Button";
 import InputWrap from "../UI/forms/InputWrap";
-import FormCaption from "../UI/forms/FormCaption";
+import Caption from "../UI/Caption";
 import LoadingScreen from "../UI/LoadingScreen";
 
 import { loginUser, loginWithGoogleUser } from "../../redux-store/auth-actions";
@@ -63,7 +63,7 @@ const Login = (props) => {
       ) : (
         <Card className={classes.mainwrap}>
           <div className={classes.scroll}>
-            <FormCaption>Login</FormCaption>
+            <Caption>Login</Caption>
             <form onSubmit={submitHandler}>
               <InputWrap>
                 <label htmlFor="email">Email</label>

@@ -41,3 +41,18 @@ export const handleNewProfile = async (userAuth, additionalData) => {
   return userRef; //used to update local state of app(header fe)
 };
 
+export const addNewOrder = async (uid, cartData) => {
+  if (!uid) return;
+
+  const timestamp = new Date().getTime();
+
+  const orderRef = firestore.doc(`orders/${uid}/userorders/${timestamp}`);
+
+  try {
+    await orderRef.set({
+      cartData: JSON.stringify(cartData),
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};

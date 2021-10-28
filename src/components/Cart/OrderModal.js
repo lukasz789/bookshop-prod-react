@@ -6,7 +6,15 @@ import CartContext from "../../store/cart-context";
 import { useContext } from "react";
 import ReactDOM from "react-dom";
 
+import { addNewOrder } from "../../firebase/utils";
+
+import { auth } from "../../firebase/utils";
+
+import { useDispatch } from "react-redux";
+import { uiActions } from "../../redux-store/ui-slice";
+
 const OrderModalOverlay = (props) => {
+  const dispatch = useDispatch();
   const cartCtx = useContext(CartContext);
 
   const totalBought = cartCtx.items.reduce((curNr, item) => {
@@ -28,6 +36,11 @@ const OrderModalOverlay = (props) => {
     cartCtx.clearCart();
   };
 
+  const addNewOrderHandler = () => {
+    addNewOrder(auth.currentUser.uid, JSON.parse(localStorage.getItem("cart")));
+    dispatch(uiActions.setOrderListRender(false));
+  };
+
   return (
     <div className={classes.order}>
       <div className={classes.scroll}>
@@ -39,6 +52,7 @@ const OrderModalOverlay = (props) => {
         className={classes.confirmBtn}
         onClick={() => {
           props.onClick();
+          addNewOrderHandler();
           cartClearHandler();
         }}
       >
