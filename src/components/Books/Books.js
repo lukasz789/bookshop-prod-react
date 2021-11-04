@@ -20,7 +20,7 @@ const Books = (props) => {
           .collection("books")
           .get()
           .then((snapshot) => {
-            if (snapshot.empty && snapshot.metadata.fromCache) {
+            if (snapshot.metadata.fromCache) {
               throw new Error();
             }
             const allBooks = snapshot.docs.map((doc) => {

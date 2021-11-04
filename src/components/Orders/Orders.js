@@ -16,9 +16,12 @@ import OrderItem from "./OrderItem";
 const Orders = () => {
   const dispatch = useDispatch();
   const orderListRender = useSelector((state) => state.ui.orderListRender);
+  const currentUser = useSelector((state) => state.auth.currentUser);
 
   const [allOrders, setAllOrders] = useState([]);
   const [errorMsg, setErrorMsg] = useState("");
+
+  const { id } = currentUser;
 
   useEffect(() => {
     const fetchAllBooks = async () => {
@@ -26,12 +29,15 @@ const Orders = () => {
         try {
           await firestore
             .collection("orders")
-            .doc("D3GQ2qS2JPe6lwdhTarUo31QTJO2")
+            .doc(id)
             .collection("userorders")
             .get()
             .then((snapshot) => {
-              if (snapshot.empty && snapshot.metadata.fromCache) {
-                throw new Error();
+              if (snapshot.metadata.fromCache) {
+                throw new Error("no internet");
+              }
+              if (snapshot.empty) {
+                throw new Error("no orders");
               }
               const allOrders = snapshot.docs.map((doc) => {
                 const cartData = JSON.parse(doc.data().cartData);
@@ -44,17 +50,21 @@ const Orders = () => {
               console.log(allOrders);
             });
         } catch (err) {
-          console.log(err);
-          setErrorMsg(
-            "Something went wrong. Please check Your internet connection or try again later."
-          );
+          if (err.message === "no internet") {
+            setErrorMsg(
+              "Something went wrong. Please check Your internet connection or try again later."
+            );
+          }
+          if (err.message === "no orders") {
+            setErrorMsg("No order has been made yet!");
+          }
         }
       }
     };
 
     fetchAllBooks();
     dispatch(uiActions.setOrderListRender(true));
-  }, [dispatch, orderListRender]);
+  }, [dispatch, orderListRender, id]);
 
   const orderList = allOrders.map((order) => (
     <OrderItem

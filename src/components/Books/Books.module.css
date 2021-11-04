@@ -27,9 +27,11 @@
 
 .error {
   position: absolute;
-  top: 20%;
-  padding: 10%;
+  text-transform: uppercase;
+  width: 96%;
+  top: 35%;
   color: #bf8484;
+  text-align: center;
 }
 
 @media screen and (max-width: 768px) {

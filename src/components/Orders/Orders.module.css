@@ -5,9 +5,11 @@
 
 .error {
   position: absolute;
-  top: 20%;
-  padding: 10%;
+  text-transform: uppercase;
+  width: 96%;
+  top: 35%;
   color: #bf8484;
+  text-align: center;
 }
 
 .orders {
@@ -27,13 +29,13 @@
 }
 
 .tableheader {
-  padding-top: 12px;
-  padding-bottom: 12px;
   background-color: #4caf50;
   color: white;
-  border-radius: 25px;
   font-size: 120%;
-  border-radius: 25px;
+}
+
+.tableheader th {
+  padding: 0.3rem 0;
 }
 
 @media screen and (max-width: 768px) {
