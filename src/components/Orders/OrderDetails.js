@@ -62,7 +62,6 @@ const OrdersDetails = (props) => {
     fetchOrderDetails();
   }, [id, orderId]);
 
-  console.log(orderDetails);
   const orderedItems = orderDetails.items
     ? orderDetails.items.map((item) => (
         <OrderDetailsItem
@@ -74,10 +73,11 @@ const OrdersDetails = (props) => {
         />
       ))
     : [];
-  console.log(orderedItems);
+  // console.log(orderedItems);
 
   return (
     <Card>
+      <Caption>order details</Caption>
       {orderedItems.length > 0 ? (
         <table className={classes.orders}>
           <tbody>{orderedItems}</tbody>
