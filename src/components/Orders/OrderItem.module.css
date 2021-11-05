@@ -1,0 +1,4 @@
+.orderitem:hover {
+  background-color: #ddd !important;
+  cursor: pointer;
+}

@@ -1,0 +1,9 @@
+.tableheader {
+    background-color: #4caf50;
+    color: white;
+    font-size: 120%;
+  }
+  
+  .tableheader th {
+    padding: 0.3rem 0;
+  }

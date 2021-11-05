@@ -1,0 +1,21 @@
+.table {
+  text-align: center;
+  border-spacing: 0;
+  border: none;
+  width: 95%;
+  margin: auto;
+}
+
+.table tr:nth-child(even) {
+  background-color: rgb(240, 240, 240);
+}
+
+.table tr:last-child td {
+  border-bottom: none;
+}
+
+@media screen and (max-width: 768px) {
+  .table {
+    width: 90%;
+  }
+}

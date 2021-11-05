@@ -1,4 +1,5 @@
 import { withRouter } from "react-router-dom";
+import classes from "./OrderItem.module.css";
 
 import TableRow from "../UI/TableRow";
 
@@ -22,7 +23,7 @@ const OrderItem = (props) => {
   };
 
   return (
-    <TableRow onClick={tableRowClickHandler}>
+    <TableRow onClick={tableRowClickHandler} className={classes.orderitem}>
       <td>{orderDateString}</td>
       <td>{props.orderQuantity}</td>
       <td>{`$${props.totalAmount.toFixed(2)}`}</td>

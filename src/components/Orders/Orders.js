@@ -7,6 +7,8 @@ import { firestore } from "../../firebase/utils";
 import Card from "../UI/Card";
 import classes from "./Orders.module.css";
 import Caption from "../UI/Caption";
+import Table from "../UI/Table";
+import TableHeader from "../UI/TableHeader";
 
 import { useDispatch, useSelector } from "react-redux";
 import { uiActions } from "../../redux-store/ui-slice";
@@ -80,16 +82,16 @@ const Orders = () => {
       <div className={classes.scroll}>
         <Caption>order history</Caption>
         {allOrders.length > 0 ? (
-          <table className={classes.orders}>
+          <Table>
             <tbody>
-              <tr className={classes.tableheader}>
+              <TableHeader>
                 <th>Date</th>
-                <th>Nr</th>
+                <th>Amount</th>
                 <th>Price</th>
-              </tr>
+              </TableHeader>
               {orderList}
             </tbody>
-          </table>
+          </Table>
         ) : (
           <React.Fragment>
             {errorMsg !== "" && <h3 className={classes.error}>{errorMsg}</h3>}

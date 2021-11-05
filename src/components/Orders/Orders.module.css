@@ -12,38 +12,8 @@
   text-align: center;
 }
 
-.orders {
-  text-align: center;
-  border-spacing: 0;
-  border: none;
-  width: 95%;
-  margin: auto;
-}
-
-.orders tr:nth-child(even) {
-  background-color: rgb(240, 240, 240);
-}
-
-.orders tr:last-child td {
-  border-bottom: none;
-}
-
-.tableheader {
-  background-color: #4caf50;
-  color: white;
-  font-size: 120%;
-}
-
-.tableheader th {
-  padding: 0.3rem 0;
-}
-
 @media screen and (max-width: 768px) {
   .scroll {
     overflow-x: hidden;
-  }
-
-  .orders {
-    width: 90%;
   }
 }

@@ -8,6 +8,8 @@ import { firestore } from "../../firebase/utils";
 import Card from "../UI/Card";
 import classes from "./OrderDetails.module.css";
 import Caption from "../UI/Caption";
+import Table from "../UI/Table";
+import TableHeader from "../UI/TableHeader";
 
 import OrderDetailsItem from "./OrderDetailsItem";
 
@@ -79,9 +81,16 @@ const OrdersDetails = (props) => {
     <Card>
       <Caption>order details</Caption>
       {orderedItems.length > 0 ? (
-        <table className={classes.orders}>
-          <tbody>{orderedItems}</tbody>
-        </table>
+        <Table>
+          <tbody>
+            <TableHeader>
+              <th>Name</th>
+              <th>Price</th>
+              <th>Amount</th>
+            </TableHeader>
+            {orderedItems}
+          </tbody>
+        </Table>
       ) : (
         <React.Fragment>
           {errorMsg !== "" && <h3 className={classes.error}>{errorMsg}</h3>}
