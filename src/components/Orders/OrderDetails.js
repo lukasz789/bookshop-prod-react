@@ -10,6 +10,7 @@ import classes from "./OrderDetails.module.css";
 import Caption from "../UI/Caption";
 import Table from "../UI/Table";
 import TableHeader from "../UI/TableHeader";
+import TableRow from "../UI/TableRow";
 
 import OrderDetailsItem from "./OrderDetailsItem";
 
@@ -79,34 +80,43 @@ const OrdersDetails = (props) => {
 
   return (
     <Card>
-      <Caption>order details</Caption>
-      {orderedItems.length > 0 ? (
-        <Table>
-          <tbody>
-            <TableHeader>
-              <th>Name</th>
-              <th>Price</th>
-              <th>Amount</th>
-            </TableHeader>
-            {orderedItems}
-          </tbody>
-        </Table>
-      ) : (
-        <React.Fragment>
-          {errorMsg !== "" && <h3 className={classes.error}>{errorMsg}</h3>}
-          {errorMsg === "" && (
-            <div
-              style={{
-                position: "fixed",
-                left: "calc(50% - 2rem)",
-                top: "calc(50% - 0.5rem)",
-              }}
-            >
-              <CircularProgress size={"4rem"} color={"secondary"} />
-            </div>
-          )}
-        </React.Fragment>
-      )}
+      <div className={classes.scroll}>
+        <Caption>order details</Caption>
+        {orderedItems.length > 0 ? (
+          <Table>
+            <tbody>
+              <TableHeader>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Amount</th>
+              </TableHeader>
+              {orderedItems}
+              <TableRow>
+                <td></td>
+                <td className={classes.totalAmount}>
+                  ${orderDetails.totalAmount.toFixed(2)}
+                </td>
+                <td></td>
+              </TableRow>
+            </tbody>
+          </Table>
+        ) : (
+          <React.Fragment>
+            {errorMsg !== "" && <h3 className={classes.error}>{errorMsg}</h3>}
+            {errorMsg === "" && (
+              <div
+                style={{
+                  position: "fixed",
+                  left: "calc(50% - 2rem)",
+                  top: "calc(50% - 0.5rem)",
+                }}
+              >
+                <CircularProgress size={"4rem"} color={"secondary"} />
+              </div>
+            )}
+          </React.Fragment>
+        )}
+      </div>
     </Card>
   );
 };

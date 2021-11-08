@@ -12,7 +12,10 @@ const OrderItem = (props) => {
     orderDate.getFullYear(),
   ];
 
-  const orderDateString = `${day}-${month}-${year}`;
+  const stringDay = day < 10 ? "0" + day : "" + day;
+  const stringMonth = month < 10 ? "0" + month : "" + month;
+
+  const orderDateString = `${stringDay}-${stringMonth}-${year}`;
 
   const { history } = props;
 

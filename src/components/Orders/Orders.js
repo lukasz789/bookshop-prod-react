@@ -49,7 +49,6 @@ const Orders = () => {
                 };
               });
               setAllOrders(allOrders);
-              console.log(allOrders);
             });
         } catch (err) {
           if (err.message === "no internet") {

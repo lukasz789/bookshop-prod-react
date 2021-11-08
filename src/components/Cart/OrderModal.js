@@ -44,7 +44,7 @@ const OrderModalOverlay = (props) => {
   return (
     <div className={classes.order}>
       <div className={classes.scroll}>
-        <h2>Thank You for shopping with us!</h2>
+        <h2 style={{ textAlign: "center" }}>Thank You for shopping with us!</h2>
         <h4>You have bought as follows: ({totalBought} book(s) total)</h4>
         {cartItems}
       </div>
