@@ -29,8 +29,6 @@ const cartReducer = (state, action) => {
       updatedItems = state.items.concat(action.item);
     }
 
-    console.log(updatedItems);
-    console.log(updatedTotalAmount);
     localStorage.setItem(
       "cart",
       JSON.stringify({
@@ -54,7 +52,6 @@ const cartReducer = (state, action) => {
     updatedTotalAmount = updatedTotalAmount < 0 ? 0 : updatedTotalAmount;
     const updatedItems = state.items.filter((item) => item.id !== action.id);
 
-    console.log(updatedItems);
     localStorage.setItem(
       "cart",
       JSON.stringify({
@@ -88,7 +85,6 @@ const cartReducer = (state, action) => {
       updatedItems[existingCartItemIndex] = updatedItem;
     }
 
-    console.log(updatedItems);
     localStorage.setItem(
       "cart",
       JSON.stringify({

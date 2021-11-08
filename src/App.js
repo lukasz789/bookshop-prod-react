@@ -37,6 +37,15 @@ const App = (props) => {
     return () => authListener();
   }, [dispatch]);
 
+  currentUser
+    ? localStorage.setItem(
+        "currentUser",
+        JSON.stringify({
+          currentUser,
+        })
+      )
+    : localStorage.setItem("currentUser", null);
+
   return (
     <React.Fragment>
       <Switch>
