@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/bookshop-prod-react/static/css/main.4131c7ad.chunk.css",
-    "main.js": "/bookshop-prod-react/static/js/main.01d54e6c.chunk.js",
-    "main.js.map": "/bookshop-prod-react/static/js/main.01d54e6c.chunk.js.map",
+    "main.js": "/bookshop-prod-react/static/js/main.43adc596.chunk.js",
+    "main.js.map": "/bookshop-prod-react/static/js/main.43adc596.chunk.js.map",
     "runtime-main.js": "/bookshop-prod-react/static/js/runtime-main.4840a5b0.js",
     "runtime-main.js.map": "/bookshop-prod-react/static/js/runtime-main.4840a5b0.js.map",
     "static/js/2.cfeab950.chunk.js": "/bookshop-prod-react/static/js/2.cfeab950.chunk.js",
@@ -24,6 +24,6 @@
     "static/js/runtime-main.4840a5b0.js",
     "static/js/2.cfeab950.chunk.js",
     "static/css/main.4131c7ad.chunk.css",
-    "static/js/main.01d54e6c.chunk.js"
+    "static/js/main.43adc596.chunk.js"
   ]
 }
