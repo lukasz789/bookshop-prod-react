@@ -46,7 +46,7 @@ export const addNewOrder = async (uid, cartData) => {
 
   const timestamp = new Date().getTime();
 
-  const orderRef = firestore.doc(`orders/${uid}/userorders/${timestamp}`);
+  const orderRef = firestore.doc(`userdata/${uid}/userorders/${timestamp}`);
 
   try {
     await orderRef.set({

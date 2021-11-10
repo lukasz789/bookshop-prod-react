@@ -31,7 +31,7 @@ const OrdersDetails = (props) => {
     const fetchOrderDetails = async () => {
       try {
         await firestore
-          .collection("orders")
+          .collection("userdata")
           .doc(id)
           .collection("userorders")
           .get()

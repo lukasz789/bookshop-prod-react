@@ -30,7 +30,7 @@ const Orders = () => {
       if (orderListRender) {
         try {
           await firestore
-            .collection("orders")
+            .collection("userdata")
             .doc(id)
             .collection("userorders")
             .get()
