@@ -76,7 +76,6 @@ const OrdersDetails = (props) => {
         />
       ))
     : [];
-  // console.log(orderedItems);
 
   return (
     <Card>
@@ -91,7 +90,7 @@ const OrdersDetails = (props) => {
                 <th>Amount</th>
               </TableHeader>
               {orderedItems}
-              <TableRow>
+              <TableRow className={classes.finalrow}>
                 <td></td>
                 <td className={classes.totalAmount}>
                   ${orderDetails.totalAmount.toFixed(2)}

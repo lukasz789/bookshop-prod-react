@@ -6,3 +6,9 @@
   height: 100%;
   overflow: auto;
 }
+
+.finalrow > * {
+  border: none !important;
+  border-bottom: 1px solid #ddd !important;
+  border-top: 1px solid #ddd !important;
+}

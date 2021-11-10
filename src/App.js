@@ -1,12 +1,9 @@
 import React, { useEffect } from "react";
-import { Switch, Route, Redirect } from "react-router-dom";
+import { Switch } from "react-router-dom";
 
 //redux store
 import { useSelector, useDispatch } from "react-redux";
 import { authActions } from "./redux-store/auth-slice";
-
-//layouts
-import Mainlayout from "./layouts/Mainlayout";
 
 //pages
 import Mainpage from "./pages/Mainpage";
@@ -17,8 +14,9 @@ import Orderspage from "./pages/Orderspage";
 import OrderDetailsPage from "./pages/OrderDetailspage";
 
 import { auth, handleNewProfile } from "./firebase/utils";
+import ShopRoute from "./components/CustomRoutes/ShopRoute";
 
-const App = (props) => {
+const App = () => {
   const dispatch = useDispatch();
   const currentUser = useSelector((state) => state.auth.currentUser);
 
@@ -31,8 +29,9 @@ const App = (props) => {
             authActions.setCurrentUser({ id: snapshot.id, ...snapshot.data() })
           );
         });
+      } else if (!userAuth) {
+        dispatch(authActions.setCurrentUser(null));
       }
-      dispatch(authActions.setCurrentUser(null));
     });
     return () => authListener();
   }, [dispatch]);
@@ -49,74 +48,32 @@ const App = (props) => {
   return (
     <React.Fragment>
       <Switch>
-        <Route
+        <ShopRoute
+          currentUser={currentUser}
           path="/register"
-          render={() =>
-            currentUser ? (
-              <Redirect to="/" />
-            ) : (
-              <Mainlayout>
-                <Register />
-              </Mainlayout>
-            )
-          }
+          component={<Register />}
         />
-        <Route
+        <ShopRoute
+          currentUser={currentUser}
           path="/login"
-          render={() =>
-            currentUser ? (
-              <Redirect to="/" />
-            ) : (
-              <Mainlayout>
-                <Login />
-              </Mainlayout>
-            )
-          }
+          component={<Login />}
         />
-        <Route
+        <ShopRoute
+          currentUser={currentUser}
           path="/resetPassword"
-          render={() =>
-            currentUser ? (
-              <Redirect to="/" />
-            ) : (
-              <Mainlayout>
-                <PasswordReset />
-              </Mainlayout>
-            )
-          }
+          component={<PasswordReset />}
         />
-        <Route
+        <ShopRoute
+          currentUser={!currentUser}
           path="/orders/:orderId"
-          render={() =>
-            !currentUser ? (
-              <Redirect to="/" />
-            ) : (
-              <Mainlayout>
-                <OrderDetailsPage />
-              </Mainlayout>
-            )
-          }
+          component={<OrderDetailsPage />}
         />
-        <Route
+        <ShopRoute
+          currentUser={!currentUser}
           path="/orders"
-          render={() =>
-            !currentUser ? (
-              <Redirect to="/" />
-            ) : (
-              <Mainlayout>
-                <Orderspage />
-              </Mainlayout>
-            )
-          }
+          component={<Orderspage />}
         />
-        <Route
-          path="/"
-          render={() => (
-            <Mainlayout>
-              <Mainpage />
-            </Mainlayout>
-          )}
-        />
+        <ShopRoute currentUser={false} path="/" component={<Mainpage />} />
       </Switch>
     </React.Fragment>
   );

@@ -33,20 +33,21 @@ const NavLinks = (props) => {
             activeClassName={classes.active}
             onClick={clickNavBtnHandler}
           >
-            <NavButton>Register</NavButton>
+            <NavButton className={classes.navbtn}>Register</NavButton>
           </NavLink>
           <NavLink
             to="/login"
             activeClassName={classes.active}
             onClick={clickNavBtnHandler}
           >
-            <NavButton>Login</NavButton>
+            <NavButton className={classes.navbtn}>Login</NavButton>
           </NavLink>
         </React.Fragment>
       )}
       {currentUser && (
         <React.Fragment>
           <NavButton
+            className={classes.navbtn}
             onClick={() => {
               logoutHandler();
               clickNavBtnHandler();
@@ -59,7 +60,7 @@ const NavLinks = (props) => {
             activeClassName={classes.active}
             onClick={clickNavBtnHandler}
           >
-            <NavButton>Orders</NavButton>
+            <NavButton className={classes.navbtn}>Orders</NavButton>
           </NavLink>
         </React.Fragment>
       )}

@@ -1,6 +1,6 @@
 .tablerow td {
   padding: 8px;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family: inherit;
 }
 
 .tablerow td:first-child {
