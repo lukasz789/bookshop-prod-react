@@ -3,30 +3,33 @@ import { uiActions } from "./ui-slice";
 
 import { auth, handleNewProfile, signInWithGoogle } from "../firebase/utils";
 
+const showPopup = (dispatch) => {
+  dispatch(uiActions.setPopup(true));
+  dispatch(uiActions.showSpinner(false));
+};
+
+const setPopupData = (dispatch, status, message) => {
+  dispatch(
+    uiActions.setNotification({
+      status: status,
+      message: message,
+    })
+  );
+};
+
 export const loginUser = (email, password) => {
   return async (dispatch) => {
     try {
       dispatch(uiActions.showSpinner(true));
       await auth.signInWithEmailAndPassword(email, password);
       dispatch(authActions.setLoginSuccess(true));
-      dispatch(
-        uiActions.setNotification({
-          status: "success",
-          message: "Logged in!",
-        })
-      );
+      setPopupData(dispatch, "success", "Logged in!");
     } catch (error) {
       console.log(error.message);
-      dispatch(
-        uiActions.setNotification({
-          status: "error",
-          message: "Something went wrong!",
-        })
-      );
+      setPopupData(dispatch, "error", "Failed to login!");
     }
-    dispatch(uiActions.setPopup(true));
     dispatch(authActions.setLoginSuccess(false));
-    dispatch(uiActions.showSpinner(false));
+    showPopup(dispatch);
   };
 };
 
@@ -36,24 +39,13 @@ export const loginWithGoogleUser = () => {
       dispatch(uiActions.showSpinner(true));
       await signInWithGoogle();
       dispatch(authActions.setLoginSuccess(true));
-      dispatch(
-        uiActions.setNotification({
-          status: "success",
-          message: "Logged in!",
-        })
-      );
+      setPopupData(dispatch, "success", "Logged in!");
     } catch (error) {
       console.log(error.message);
-      dispatch(
-        uiActions.setNotification({
-          status: "error",
-          message: "Something went wrong!",
-        })
-      );
+      setPopupData(dispatch, "error", "Failed to login!");
     }
-    dispatch(uiActions.setPopup(true));
     dispatch(authActions.setLoginSuccess(false));
-    dispatch(uiActions.showSpinner(false));
+    showPopup(dispatch);
   };
 };
 
@@ -66,26 +58,14 @@ export const registerUser = (email, password, name) => {
         password
       );
       await handleNewProfile(user, { displayName: name });
-
       dispatch(authActions.setRegisterSuccess(true));
-      dispatch(
-        uiActions.setNotification({
-          status: "success",
-          message: "Registered!",
-        })
-      );
+      setPopupData(dispatch, "success", "Registered!");
     } catch (error) {
       console.log(error.message);
-      dispatch(
-        uiActions.setNotification({
-          status: "error",
-          message: "Something went wrong!",
-        })
-      );
+      setPopupData(dispatch, "error", "Failed to register!");
     }
-    dispatch(uiActions.setPopup(true));
     dispatch(authActions.setRegisterSuccess(false));
-    dispatch(uiActions.showSpinner(false));
+    showPopup(dispatch);
   };
 };
 
@@ -98,24 +78,13 @@ export const resetPassword = (email) => {
       };
 
       await auth.sendPasswordResetEmail(email, resetCfg);
-      dispatch(
-        uiActions.setNotification({
-          status: "success",
-          message: "Password reset!",
-        })
-      );
+      setPopupData(dispatch, "success", "Password reset!");
       dispatch(authActions.setResetPasswordSuccess(true));
     } catch (error) {
       console.log(error);
-      dispatch(
-        uiActions.setNotification({
-          status: "error",
-          message: "Something went wrong!",
-        })
-      );
+      setPopupData(dispatch, "error", "Failed to reset password!");
     }
-    dispatch(uiActions.setPopup(true));
     dispatch(authActions.setResetPasswordSuccess(false));
-    dispatch(uiActions.showSpinner(false));
+    showPopup(dispatch);
   };
 };

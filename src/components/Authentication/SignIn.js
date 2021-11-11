@@ -12,9 +12,6 @@ import LoadingScreen from "../UI/LoadingScreen";
 
 import { loginUser, loginWithGoogleUser } from "../../redux-store/auth-actions";
 
-import { validateEmail } from "../../hooks/use-input";
-import { validatePassword } from "../../hooks/use-input";
-
 const Login = (props) => {
   const loginSuccess = useSelector((state) => state.auth.loginSuccess);
   const spinnerVisible = useSelector((state) => state.ui.spinner);
@@ -39,7 +36,7 @@ const Login = (props) => {
 
   const submitHandler = (event) => {
     event.preventDefault();
-    if (validateEmail(mail) && validatePassword(password)) {
+    if (mail.length > 0 && password.length > 0) {
       dispatch(loginUser(mail, password));
     }
   };

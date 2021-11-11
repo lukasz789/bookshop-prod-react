@@ -12,3 +12,12 @@
   border-bottom: 1px solid #ddd !important;
   border-top: 1px solid #ddd !important;
 }
+
+.error {
+  position: absolute;
+  text-transform: uppercase;
+  width: 96%;
+  top: 35%;
+  color: #bf8484;
+  text-align: center;
+}
