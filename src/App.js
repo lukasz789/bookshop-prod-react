@@ -73,7 +73,7 @@ const App = () => {
           path="/orders"
           component={<Orderspage />}
         />
-        <ShopRoute currentUser={false} path="/" component={<Mainpage />} />
+        <ShopRoute currentUser={false} path="/" component={<Mainpage />} /> 
       </Switch>
     </React.Fragment>
   );

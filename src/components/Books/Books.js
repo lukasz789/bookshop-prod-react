@@ -8,7 +8,7 @@ import { CircularProgress } from "@material-ui/core";
 
 import { firestore } from "../../firebase/utils";
 
-const Books = (props) => {
+const Books = () => {
   const [searchTitle, setSearchTitle] = useState("");
   const [allBooks, setAllBooks] = useState([]);
   const [errorMsg, setErrorMsg] = useState("");
