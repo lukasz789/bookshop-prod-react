@@ -23,6 +23,6 @@ To see this application simply click the link below
 or follow these steps if You want to locally run it(npm required):
 
 * clone master branch of current repository (https://github.com/lukasz789/bookshop-prod-react)
-* in its directory path's cmd type : _npm install_ to download required modules
+* in it's directory path's cmd type : _npm install_ to download required modules
 * after it run: _npm start_
 
