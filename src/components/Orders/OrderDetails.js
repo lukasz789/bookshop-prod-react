@@ -78,7 +78,7 @@ const OrdersDetails = (props) => {
     : [];
 
   return (
-    <Card>
+    <Card className={classes.details}>
       <div className={classes.scroll}>
         <Caption>order details</Caption>
         {orderedItems.length > 0 ? (
