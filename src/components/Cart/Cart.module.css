@@ -76,6 +76,7 @@
 
 .cartRemove {
   cursor: pointer;
+  color: gray;
 }
 
 .cartRemove:hover {
@@ -83,6 +84,15 @@
 }
 
 @media screen and (max-width: 768px) {
+  .close:active,
+  .close:hover {
+    background-color: crimson;
+  }
+
+  .cartRemove:hover {
+    color: gray;
+  }
+
   .buttons {
     display: flex;
     flex-direction: column-reverse;

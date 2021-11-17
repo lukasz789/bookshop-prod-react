@@ -62,12 +62,14 @@
 .adder:active {
   background: rgb(1, 94, 1);
   border-color: rgb(1, 94, 1);
+  cursor: pointer;
 }
 
 .deleter:hover,
 .deleter:active {
   background: rgb(255, 26, 72);
   border-color: rgb(255, 26, 72);
+  cursor: pointer;
 }
 
 .btnPos {
@@ -123,5 +125,24 @@
   .actions button {
     width: 4rem;
     height: 2.5rem;
+  }
+
+  .button:hover,
+  .button:active {
+    background-color: crimson;
+  }
+
+  .adder:hover,
+  .adder:active {
+    background: #612424f6;
+    border-color: #612424f6;
+    cursor: pointer;
+  }
+
+  .deleter:hover,
+  .deleter:active {
+    background: #612424f6;
+    border-color: #612424f6;
+    cursor: pointer;
   }
 }

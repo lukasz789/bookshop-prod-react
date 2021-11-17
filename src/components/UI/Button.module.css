@@ -24,3 +24,19 @@ button:disabled:active {
   color: #292929;
   cursor: not-allowed;
 }
+
+@media screen and (max-width: 768px) {
+  .button:hover,
+  .button:active {
+    background: #612424f6;
+    border-color: #612424f6;
+  }
+
+  button:disabled,
+  button:disabled:hover,
+  button:disabled:active {
+    background: #612424f6;
+    border-color: #612424f6;
+    cursor: not-allowed;
+  }
+}

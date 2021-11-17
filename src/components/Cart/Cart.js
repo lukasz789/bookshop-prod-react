@@ -51,7 +51,6 @@ const Cart = (props) => {
       <div className={classes.cartreset}>
         <RemoveShoppingCartIcon
           onClick={cartClearHandler}
-          color="action"
           fontSize="large"
           className={classes.cartRemove}
         />

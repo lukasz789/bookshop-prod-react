@@ -14,9 +14,3 @@ html {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   -moz-tap-highlight-color: rgba(0, 0, 0, 0);
 }
-
-@media screen and (hover: none) {
-  *:hover {
-    color: inherit;
-  }
-}
