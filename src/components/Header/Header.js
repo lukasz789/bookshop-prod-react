@@ -28,7 +28,6 @@ const Header = (props) => {
       <header className={classes.header}>
         <Link to="/" style={{ textDecoration: "none" }}>
           <h1
-            className={classes.bookshopcaption}
             onClick={clickHeaderCaptionHandler}
           >
             Bookshop
